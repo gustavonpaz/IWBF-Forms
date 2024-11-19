@@ -86,5 +86,8 @@ def process():
 
     return f"Processamento concluído! Verifique a pasta '{output_base_path}' para os PDFs gerados."
 
+import os
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))  # Render usa variáveis de ambiente
+    app.run(host="0.0.0.0", port=port, debug=True)
